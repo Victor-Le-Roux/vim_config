@@ -1,24 +1,23 @@
-" Activer la numérotation des lignes
-set nocompatible " Obligatoire pour Vundle
-filetype off     " Obligatoire pour Vundle
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'dracula/vim' " Mettez le plugin Dracula ici
-
-" Les plugins que vous souhaitez installer avec Vundle
-call vundle#end()
-filetype plugin indent on   " Obligatoire pour Vundle
-
+set list lcs=trail:·,tab:\ \ 
+set cindent
+set ttimeoutlen=0 timeoutlen=0
 set number
-" Activer les lignes relatives
 set relativenumber
 
-" Activer l'autocomplétion
-set omnifunc=syntaxcomplete#Complete
+if v:version < 802
+    packadd! dracula
+endif
+syntax enable
+colorscheme dracula
 
-" Configuration de l'autocomplétion avec Tab
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-fugitive'
+Plug 'prabirshrestha/asyncomplete.vim'
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+let g:asyncomplete_auto_popup = 0
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
