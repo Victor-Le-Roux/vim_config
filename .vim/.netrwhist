@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =4
-let g:netrw_dirhist_4='/home/vle-roux/.vim'
-let g:netrw_dirhist_3='/goinfre/vle-roux/test/srcs'
-let g:netrw_dirhist_2='/home/vle-roux/bin'
-let g:netrw_dirhist_1='/home/vle-roux/c00/ex08'
